@@ -1,0 +1,142 @@
+.container-fluid {
+    .row {
+        height: 90vh;
+    }
+}
+
+.basic {
+    div {
+        background-color: #F1F8FD;
+        margin-top: 10px;
+        padding: 10px;
+        span {
+            color: red;
+        }
+    }
+}
+
+.first {
+    .basic {
+        // height: 60%;
+    }
+}
+
+.checklist {
+    height: 35%;
+    h2 {
+        color: rgb(163, 162, 162);
+    }
+    .list {
+        color: rgb(107, 107, 107);
+        font-size: 14px;
+        .not-first {
+            padding-top: 5px;
+        }
+    }
+}
+
+.end-call {
+    text-align: center;
+    button {
+        outline: none;
+        border: none;
+        padding: 10px 50px;
+    }
+}
+
+.video {
+    .call {
+        // height: 60%;
+        align-items: center;
+        img {
+            width: 100%;
+            background-color: gray;
+        }
+    }
+    .history {
+        div {
+            background-color: #CAE9F8;
+        }
+        .history-item {
+            margin-top: 10px;
+            padding: 12px;
+            cursor: pointer;
+            color: #53B0E5;
+            justify-content: space-between;
+            font-size: 16px;
+        }
+        .history-item:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.options {
+    .pres {
+        height: 50%;
+        span {
+            background-color: #CAE9F8;
+            padding: 5px;
+            margin: 3px 2px;
+            display: inline-block;
+            mat-icon {
+                font-size: 16px;
+                vertical-align: middle;
+                height: auto;
+                width: auto;
+                background: white;
+                border-radius: 50%;
+                padding: 3px;
+                color: #53B0E5;
+            }
+        }
+        button {
+            width: 100%;
+            text-align: center;
+            color: #53B0E5;
+            font-size: 18px;
+            outline: none;
+            padding: 10px;
+            border: 1px solid transparent;
+            background-color: transparent;
+            mat-icon {
+                vertical-align: middle;
+            }
+        }
+        bottom:hover {
+            border: 1px solid #53B0E5 !important;
+        }
+    }
+}
+
+.active-history {
+    font-size: 15px;
+    font-weight: 500;
+    .photos {
+        padding-top: 30px;
+        color: #53B0E5;
+        cursor: pointer;
+        span {
+            color: #CE7AE8;
+        }
+    }
+    .photos:hover {
+        text-decoration: underline;
+        span {
+            text-decoration: underline;
+        }
+    }
+    .his-inputs {
+        padding-top: 30px;
+        .lable {
+            font-size: 17px;
+            text-decoration: underline;
+            font-weight: 500;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        mat-form-field {
+            width: 100%;
+        }
+    }
+}

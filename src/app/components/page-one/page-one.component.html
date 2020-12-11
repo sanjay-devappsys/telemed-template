@@ -1,0 +1,140 @@
+<div class="container-fluid">
+    <div class="row p-4">
+        <div class="col-md-2 first">
+            <div class="basic">
+                <div class="">
+                    {{basicInfo.lang}}
+                </div>
+                <div class="">
+                    {{basicInfo.name}}
+                </div>
+                <div class="">
+                    {{basicInfo.dob}}
+                </div>
+                <div class="">
+                    <span *ngFor="let c of basicInfo.cond; last as last">{{c}} {{!last ? ', ':''}} </span>
+                </div>
+            </div>
+
+            <div class="checklist pt-5 mt-4">
+                <div>
+                    <h2> Checklist :</h2>
+                </div>
+                <div class="list">
+                    <div *ngFor="let check of checklist;first as first" [class.not-first]="!first"> {{check}} </div>
+                </div>
+            </div>
+            <div class="end-call">
+                <button type="button"> End Call</button>
+            </div>
+        </div>
+        <div class="col-md-3 video">
+            <div class="call">
+                <img src="/assets/video.svg">
+            </div>
+            <div class="history">
+                <div *ngFor="let h of history" (click)="changeActiveHis(h.historyRid)" class="d-flex history-item">
+                    <div>
+                        {{h.date == null ? 'Today': (h.date |date:'MMM d, y')}}
+                    </div>
+                    <div>
+                        {{h.issue}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5 active-history">
+            <div *ngIf="activeHistory" class="">
+                <div class="date pb-2">
+                    {{activeHistory.date == null ? ('Today : '+ (today|date:'MMM d, y')):('Date :'+(activeHistory.date|date:'MMM d, y'))}}
+                </div>
+                <div>
+                    Problem : {{activeHistory.problem}}
+                </div>
+                <div class="photos" (click)="openPhotos(activeHistory.photos)">
+                    Photos <span> (Uploaded on that day - pop up)</span>
+                </div>
+                <div class="his-inputs">
+                    <div class="lable">
+                        Diagnosis
+                    </div>
+                    <div>
+                        <mat-form-field appearance="legacy" class="">
+                            <mat-label>Enter diagnosis</mat-label>
+                            <input matInput [disabled]="activeHistory.date" [(ngModel)]="activeHistory.diagnosis">
+                        </mat-form-field>
+                    </div>
+                    <div class="lable">
+                        Treatment
+                    </div>
+                    <div>
+                        <mat-form-field appearance="legacy" class="">
+                            <mat-label>Enter Treatment</mat-label>
+                            <input matInput [disabled]="activeHistory.date" [(ngModel)]="activeHistory.treatment">
+                        </mat-form-field>
+                    </div>
+                    <div class="lable">
+                        Lab Test Reccomendation
+                    </div>
+                    <div>
+                        <mat-form-field appearance="legacy" class="">
+                            <mat-label>Enter Reccomendations</mat-label>
+                            <input matInput [disabled]="activeHistory.date" [(ngModel)]="activeHistory.labTestRecord">
+                        </mat-form-field>
+                    </div>
+                    <div class="lable">
+                        Follow up suggestions
+                    </div>
+                    <div>
+                        <mat-form-field appearance="legacy" class="">
+                            <mat-label>Enter suggestions</mat-label>
+                            <input matInput [disabled]="activeHistory.date" [(ngModel)]="activeHistory.suggestions">
+                        </mat-form-field>
+                    </div>
+                    <div class="lable">
+                        Recommend consultation with a specialist
+                    </div>
+                    <div>
+                        <mat-form-field appearance="legacy" class="">
+                            <mat-label>Specialists</mat-label>
+
+                            <mat-select [disabled]="activeHistory.date" [(ngModel)]="activeHistory.recommendations">
+                                <mat-option [value]="1">Lakshmi Reddy</mat-option>
+                                <mat-option [value]="2">Varun Reddy</mat-option>
+                                <mat-option [value]="3">Suhas MD</mat-option>
+                                <mat-option [value]="4">Venkat</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 options">
+            <div>
+                <h1>
+                    Prescription
+                </h1>
+            </div>
+            <div class="pres">
+                <span class="" *ngFor="let pre of prescription">
+          {{pre}} <mat-icon>get_app</mat-icon>
+        </span>
+                <div>
+                    <button type="button">
+            <mat-icon>add</mat-icon> Add Drug
+          </button>
+                </div>
+            </div>
+
+            <div class="pres">
+                <span *ngFor="let pre of drugsList"> {{pre}} <mat-icon>get_app</mat-icon></span>
+                <div>
+                    <button type="button">
+            <mat-icon>add</mat-icon> Add Drug
+          </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="goto" routerLink="/page-two"> Go to page two</button>

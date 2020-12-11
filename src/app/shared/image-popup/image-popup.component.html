@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>
+    Photos
+    <button mat-dialog-close mat-icon-button class="close">
+    <mat-icon>clear</mat-icon>
+  </button>
+</h1>
+
+<mat-dialog-content>
+    <div *ngIf="data.length == 0;then content else other_content"></div>
+    <ng-template #content>
+        <h2> No image is available to show...</h2>
+    </ng-template>
+    <ng-template #other_content>
+        <div class="row">
+            <div class="col-md-6" *ngFor="let img of data">
+                <img [src]="img">
+            </div>
+        </div>
+    </ng-template>
+</mat-dialog-content>
